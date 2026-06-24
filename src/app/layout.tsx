@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import { BrandLoader } from "@/components/splash/BrandLoader";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Body: a warm humanist grotesk — quiet, legible, not Inter.
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  weight: ["400", "500", "600", "700"],
+// Display: Fraunces, a soft old-style serif with real character and italics.
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -39,7 +41,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${hanken.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ivory text-charcoal">
         <BrandLoader />

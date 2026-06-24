@@ -1,6 +1,7 @@
 import { listCategories, listServices } from "@/data/catalog";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
 
 export function ServicesSection() {
   const services = listServices();
@@ -13,17 +14,17 @@ export function ServicesSection() {
       id="services"
       className="mx-auto max-w-7xl scroll-mt-24 px-6 py-20 md:px-10 md:py-28"
     >
-      <Reveal as="div" className="mb-10 max-w-2xl">
+      <Reveal as="div" className="mb-12 max-w-2xl">
         <header>
-          <span className="text-[11px] uppercase tracking-[0.32em] text-gold-500">
-            Services
-          </span>
-          <h2 className="mt-3 font-display text-4xl text-charcoal md:text-5xl">
-            Cuts, color &amp; care
+          <SectionLabel>the menu</SectionLabel>
+          <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] tracking-[-0.01em] text-charcoal md:text-6xl">
+            Cuts, color &amp; quiet
+            <span className="italic text-rose-600"> care</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted">
-            Choose a service to book your day. Each booking is confirmed by
-            WhatsApp, and your spot is held for 24 hours while we reply.
+          <p className="mt-5 text-base leading-relaxed text-muted">
+            Pick what you&apos;re after and choose a day. Every booking is
+            confirmed personally over WhatsApp, and your spot is held for 24
+            hours while we reply.
           </p>
         </header>
       </Reveal>

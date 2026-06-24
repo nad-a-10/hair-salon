@@ -39,11 +39,11 @@ export function Footer() {
     <footer id="contact" className="scroll-mt-24 mt-24 border-t border-line/60 bg-cream/60">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3 md:px-10">
         <div className="space-y-4">
-          <span className="block font-display text-3xl text-charcoal">
+          <span className="block font-display text-3xl font-medium text-charcoal">
             {siteConfig.name}
           </span>
-          <p className="text-[10px] uppercase tracking-[0.32em] text-gold-500">
-            {siteConfig.role} · {siteConfig.tagline}
+          <p className="font-display text-base italic lowercase text-rose-600">
+            hair studio · {siteConfig.tagline}
           </p>
           <p className="max-w-xs text-sm leading-relaxed text-muted">
             {siteConfig.description}
@@ -51,8 +51,8 @@ export function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h4 className="text-xs uppercase tracking-[0.32em] text-gold-500">
-            Visit
+          <h4 className="font-display text-xl italic lowercase text-charcoal">
+            visit
           </h4>
           <address className="not-italic text-sm leading-relaxed text-charcoal/80">
             {siteConfig.contact.addressLines.map((line) => (
@@ -77,8 +77,8 @@ export function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h4 className="text-xs uppercase tracking-[0.32em] text-gold-500">
-            Reach us
+          <h4 className="font-display text-xl italic lowercase text-charcoal">
+            reach us
           </h4>
           <ul className="space-y-3 text-sm text-charcoal/80">
             <li className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export function Footer() {
           </ul>
           <Link
             href="/#services"
-            className="mt-4 inline-flex items-center justify-center rounded-full border border-charcoal/20 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-charcoal transition hover:border-rose-500 hover:bg-rose-500 hover:text-white"
+            className="mt-4 inline-flex items-center justify-center rounded-full border border-charcoal/20 px-6 py-2.5 text-sm font-medium text-charcoal transition hover:border-rose-500 hover:bg-rose-500 hover:text-ivory"
           >
             Book a visit
           </Link>
@@ -137,7 +137,9 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </span>
-          <span className="uppercase tracking-[0.28em]">{siteConfig.tagline}</span>
+          <span className="font-display text-sm italic lowercase text-rose-600">
+            {siteConfig.tagline}
+          </span>
         </div>
       </div>
     </footer>

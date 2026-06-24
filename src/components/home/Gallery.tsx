@@ -1,5 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { cn } from "@/lib/utils";
 import highlightImg from "@/Images/services/highlight.jpeg";
 import chignonImg from "@/Images/services/chignon.jpeg";
 import wavyImg from "@/Images/services/wavy.jpeg";
@@ -7,13 +9,14 @@ import brushingImg from "@/Images/services/brushing.jpeg";
 import haircutImg from "@/Images/services/haircut.jpeg";
 import fourDImg from "@/Images/services/4d_treatment.jpeg";
 
-const SHOTS: { src: StaticImageData; alt: string }[] = [
-  { src: highlightImg, alt: "Highlights" },
-  { src: chignonImg, alt: "Chignon updo" },
-  { src: wavyImg, alt: "Waves" },
-  { src: brushingImg, alt: "Blowout" },
-  { src: haircutImg, alt: "Haircut" },
-  { src: fourDImg, alt: "Treatment shine" },
+// span is the desktop bento footprint; the order tessellates a 4-col grid.
+const SHOTS: { src: StaticImageData; alt: string; span: string }[] = [
+  { src: highlightImg, alt: "Highlights", span: "md:col-span-2 md:row-span-2" },
+  { src: chignonImg, alt: "Chignon updo", span: "md:col-span-2" },
+  { src: wavyImg, alt: "Waves", span: "" },
+  { src: brushingImg, alt: "Blowout", span: "" },
+  { src: haircutImg, alt: "Haircut", span: "md:col-span-2" },
+  { src: fourDImg, alt: "Treatment shine", span: "md:col-span-2" },
 ];
 
 export function Gallery() {
@@ -23,33 +26,35 @@ export function Gallery() {
       className="scroll-mt-24 bg-charcoal text-ivory"
     >
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
-        <Reveal as="div" className="mb-10 max-w-2xl">
+        <Reveal as="div" className="mb-12 max-w-2xl">
           <header>
-            <span className="text-[11px] uppercase tracking-[0.32em] text-rose-300">
-              Gallery
-            </span>
-            <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">
-              Recent work
+            <SectionLabel tone="light">from the chair</SectionLabel>
+            <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] tracking-[-0.01em] text-ivory md:text-6xl">
+              A few we&apos;re
+              <span className="italic text-rose-300"> proud of</span>
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-ivory/70">
-              A glimpse of cuts, color, and finishes from the chair.
+            <p className="mt-5 text-base leading-relaxed text-ivory/70">
+              Cuts, color, and finishes, photographed as they left the studio.
             </p>
           </header>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:auto-rows-[12rem] md:grid-cols-4 md:grid-flow-dense">
           {SHOTS.map((shot, i) => (
             <Reveal
               as="div"
               key={i}
               index={i}
-              className="group relative aspect-square overflow-hidden rounded-[1.25rem]"
+              className={cn(
+                "group relative aspect-square overflow-hidden rounded-[1.25rem] ring-1 ring-ivory/10 md:aspect-auto md:h-full",
+                shot.span,
+              )}
             >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                sizes="(min-width: 768px) 30vw, 45vw"
+                sizes="(min-width: 768px) 45vw, 45vw"
                 className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                 placeholder="blur"
               />

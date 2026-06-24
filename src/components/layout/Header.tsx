@@ -9,20 +9,20 @@ export function Header() {
         <Link
           href="/"
           aria-label={`${siteConfig.name} home`}
-          className="flex items-baseline gap-2 transition hover:opacity-80"
+          className="flex items-baseline gap-2.5 transition hover:opacity-80"
         >
-          <span className="font-display text-2xl tracking-tight text-charcoal sm:text-3xl">
+          <span className="font-display text-2xl font-medium tracking-tight text-charcoal sm:text-3xl">
             {siteConfig.name}
           </span>
-          <span className="hidden text-[10px] uppercase tracking-[0.32em] text-gold-500 md:inline">
-            {siteConfig.role}
+          <span className="hidden font-display text-base italic lowercase text-rose-600 md:inline">
+            hair studio
           </span>
         </Link>
 
         <div className="flex items-center gap-3">
           <Link
             href="/#services"
-            className="hidden items-center justify-center rounded-full border border-rose-500 bg-rose-500 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-white transition hover:bg-rose-600 md:inline-flex"
+            className="hidden items-center justify-center rounded-full bg-rose-500 px-6 py-2.5 text-sm font-medium text-ivory transition hover:bg-rose-600 md:inline-flex"
           >
             Book now
           </Link>

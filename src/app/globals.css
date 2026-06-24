@@ -1,53 +1,52 @@
 @import "tailwindcss";
 
 /*
-  Modern Noir + gold.
+  Warm boutique — clay, gold & warm ink on paper.
   Token NAMES are kept identical to the original theme so every component
-  re-themes automatically. To try the "Warm Brunette" variant later, swap the
-  hex values below (rose -> caramel/brown scale, charcoal -> espresso) and
-  nothing else needs to change.
+  re-themes automatically.
 
-  - "rose-*"  is the gold/champagne accent + primary scale.
-  - "charcoal" is the near-black noir used for text and dramatic sections.
-  - "ivory"/"cream" are the warm off-white surfaces.
+  - "rose-*"  is the clay / rosewood accent + primary scale (the warm signature).
+  - "gold-*"  is a softer champagne, used for fine details and rules.
+  - "charcoal" is a warm espresso ink (not a cold noir) for text + dark sections.
+  - "ivory"/"cream" are warm paper surfaces.
 */
 @theme {
   --breakpoint-xs: 30rem;
 
-  /* Gold / champagne accent scale (named rose-* for drop-in compatibility). */
-  --color-rose-50:  #FAF4E4;
-  --color-rose-100: #F2E6C6;
-  --color-rose-200: #E7D29B;
-  --color-rose-300: #D9BC6E;
-  --color-rose-400: #CBA84B;
-  --color-rose-500: #BD9537;
-  --color-rose-600: #9E7B2B;
-  --color-rose-700: #7E6122;
-  --color-rose-800: #574419;
-  --color-rose-900: #382C10;
+  /* Clay / rosewood accent + primary scale — the warm boutique signature. */
+  --color-rose-50:  #F8EFE9;
+  --color-rose-100: #F0DDD2;
+  --color-rose-200: #E3C2B1;
+  --color-rose-300: #D2A188;
+  --color-rose-400: #BE8066;
+  --color-rose-500: #A8654B;
+  --color-rose-600: #8C503A;
+  --color-rose-700: #6E3E2E;
+  --color-rose-800: #4F2D22;
+  --color-rose-900: #341F18;
 
-  /* Secondary warm gold, used for small uppercase labels. */
-  --color-gold-100: #F6ECD0;
-  --color-gold-200: #EEDDAE;
-  --color-gold-300: #E2C988;
-  --color-gold-400: #CFAE5F;
-  --color-gold-500: #B2913F;
-  --color-gold-600: #897031;
+  /* Soft champagne gold for hairlines and fine accents. */
+  --color-gold-100: #F4EAD6;
+  --color-gold-200: #EAD9B6;
+  --color-gold-300: #DAC290;
+  --color-gold-400: #C9AE7B;
+  --color-gold-500: #B5965E;
+  --color-gold-600: #927748;
 
-  --color-ivory:    #FAF8F4;
-  --color-cream:    #F1ECE2;
-  --color-charcoal: #17130F;
-  --color-muted:    #8C8378;
-  --color-line:     #E7E0D4;
+  --color-ivory:    #FBF6EF;
+  --color-cream:    #F0E7D9;
+  --color-charcoal: #1E1712;
+  --color-muted:    #8A7C6E;
+  --color-line:     #E7DCCB;
 
   --color-background: var(--color-ivory);
   --color-foreground: var(--color-charcoal);
   --color-primary:    var(--color-rose-500);
-  --color-primary-fg: #FFFFFF;
+  --color-primary-fg: #FBF6EF;
   --color-accent:     var(--color-gold-500);
 
-  --font-sans:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans:    var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
 
   --radius-card: 1rem;
   --radius-pill: 9999px;

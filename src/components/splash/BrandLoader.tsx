@@ -62,7 +62,7 @@ export function BrandLoader() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.95, duration: 0.6 }}
-              className="mt-3 text-xs uppercase tracking-[0.42em] text-muted sm:text-sm"
+              className="mt-3 font-display text-base italic lowercase text-muted sm:text-lg"
             >
               {siteConfig.tagline}
             </motion.p>

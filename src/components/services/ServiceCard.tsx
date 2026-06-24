@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import type { Service } from "@/types/catalog";
 
@@ -27,14 +27,14 @@ export function ServiceCard({ service, categoryName }: Props) {
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-rose-100 via-rose-200 to-rose-300" />
         )}
-        <span className="absolute left-4 top-4 rounded-full bg-ivory/90 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-charcoal backdrop-blur">
+        <span className="absolute left-4 top-4 rounded-full bg-ivory/90 px-3.5 py-1 font-display text-sm italic lowercase text-charcoal/80 backdrop-blur">
           {categoryName}
         </span>
       </div>
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <header className="space-y-2">
-          <h3 className="font-display text-2xl leading-tight text-charcoal">
+          <h3 className="font-display text-2xl font-light leading-tight text-charcoal">
             {service.name}
           </h3>
           <p className="text-sm leading-relaxed text-muted">
@@ -42,18 +42,19 @@ export function ServiceCard({ service, categoryName }: Props) {
           </p>
         </header>
 
-        <div className="mt-auto flex items-end justify-between gap-4 pt-2">
-          <div>
-            <div className="font-display text-2xl text-rose-600">
-              {formatPrice(service.priceCents, service.priceMaxCents)}
-            </div>
+        <div className="mt-auto flex items-end justify-between gap-4 border-t border-line/70 pt-4">
+          <div className="font-display text-2xl text-rose-600">
+            {formatPrice(service.priceCents, service.priceMaxCents)}
           </div>
           <Link
             href={`/book/${service.slug}`}
-            className="inline-flex items-center gap-1.5 rounded-full bg-charcoal px-5 py-2.5 text-xs font-medium uppercase tracking-[0.22em] text-ivory transition hover:bg-rose-600"
+            className="group/btn inline-flex items-center gap-2 rounded-full bg-charcoal px-5 py-2.5 text-sm font-medium text-ivory transition hover:bg-rose-600"
           >
             Book
-            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+            <ArrowRight
+              className="h-4 w-4 transition-transform group-hover/btn:translate-x-1"
+              aria-hidden
+            />
           </Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Elie Maamary",
   shortName: "Elie",
   role: "Hair Stylist",
-  tagline: "Cuts, color & care, crafted",
+  tagline: "unhurried cuts, color & care",
   description:
     "Elie Maamary Hair Studio, Zalka, Lebanon. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
   url: "https://example.com",
