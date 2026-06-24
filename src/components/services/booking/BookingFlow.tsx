@@ -5,7 +5,6 @@ import { formatInTimeZone } from "date-fns-tz";
 import {
   ArrowUpRight,
   CalendarCheck2,
-  Clock,
   Mail,
   MessageCircle,
   Phone,
@@ -18,7 +17,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { DayPicker } from "./DayPicker";
 import { TimeSlotPicker } from "./TimeSlotPicker";
-import { cn, formatCurrency, formatDuration } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import {
   bookingFormSchema,
   type BookingFormValues,
@@ -341,17 +340,9 @@ function BookingSummary({
 
         <dl className="space-y-3 border-y border-line/60 py-4 text-sm">
           <div className="flex items-center justify-between">
-            <dt className="inline-flex items-center gap-2 text-muted">
-              <Clock className="h-4 w-4" aria-hidden /> Duration
-            </dt>
-            <dd className="font-medium text-charcoal">
-              {formatDuration(service.durationMinutes)}
-            </dd>
-          </div>
-          <div className="flex items-center justify-between">
             <dt className="text-muted">Price</dt>
             <dd className="font-display text-xl text-rose-600">
-              {formatCurrency(service.priceCents)}
+              {formatPrice(service.priceCents, service.priceMaxCents)}
             </dd>
           </div>
           <div className="flex items-center justify-between">
@@ -465,8 +456,7 @@ function BookingSuccess({
             {service.name}
           </p>
           <p className="mt-1 text-xs text-muted">
-            {formatDuration(service.durationMinutes)} ·{" "}
-            {formatCurrency(service.priceCents)}
+            {formatPrice(service.priceCents, service.priceMaxCents)}
           </p>
         </div>
         <div>

@@ -1,26 +1,26 @@
 export const siteConfig = {
-  // TODO: replace placeholders with the stylist's real brand details.
-  name: "Maison Hair Studio",
-  shortName: "Maison",
+  // TODO: replace remaining placeholders (phone, email, socials) with real details.
+  name: "Elie Maamary",
+  shortName: "Elie",
   role: "Hair Stylist",
   tagline: "Cuts, color & care, crafted",
   description:
-    "Maison Hair Studio. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
+    "Elie Maamary Hair Studio, Zalka, Lebanon. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
   url: "https://example.com",
   contact: {
     phoneDisplay: "+961 00 000 000",
     whatsappE164: "+96100000000",
     email: "hello@example.com",
     instagram: "https://instagram.com/",
-    instagramHandle: "@maisonhairstudio",
+    instagramHandle: "@eliemaamary",
     facebook: "https://facebook.com/",
-    facebookLabel: "Maison Hair Studio",
-    addressLines: ["Studio address line 1", "City, Lebanon"],
-    mapsUrl: "https://maps.google.com/",
+    facebookLabel: "Elie Maamary Hair Studio",
+    addressLines: ["Aamrit Chalhoub, Zalqa", "Next to Haroun Hospital"],
+    mapsUrl: "https://maps.app.goo.gl/Lceq4wVTA3h8wRsy7?g_st=aw",
   },
   hours: {
-    weekdays: "Tue – Sun · by appointment",
-    sunday: "Monday · closed",
+    weekdays: "Mon – Sat · 09:00 – 19:00",
+    sunday: "Sunday · 11:00 – 17:00",
   },
   // Timezone used for all booking dates, regardless of visitor/server locale.
   timeZone: "Asia/Beirut",

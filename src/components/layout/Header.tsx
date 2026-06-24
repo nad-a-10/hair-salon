@@ -19,21 +19,6 @@ export function Header() {
           </span>
         </Link>
 
-        <nav
-          aria-label="Primary navigation"
-          className="hidden items-center gap-10 md:flex"
-        >
-          {siteConfig.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-charcoal/80 transition hover:text-rose-600"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
         <div className="flex items-center gap-3">
           <Link
             href="/#services"

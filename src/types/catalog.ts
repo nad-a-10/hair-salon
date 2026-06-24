@@ -37,6 +37,8 @@ export interface Service {
   name: string;
   description: string;
   priceCents: number;
+  /** Upper bound for services priced as a range; omit for a fixed price. */
+  priceMaxCents?: number;
   durationMinutes: number;
   imageUrl: string | null;
   /** CSS object-position for the card image, when the default center crop is wrong. */

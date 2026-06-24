@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
+import { Reveal } from "@/components/motion/Reveal";
 import portraitImg from "@/Images/services/brushing.jpeg";
 
 export function About() {
@@ -9,20 +10,20 @@ export function About() {
       className="mx-auto max-w-7xl scroll-mt-24 px-6 py-20 md:px-10 md:py-28"
     >
       <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
-        <div className="md:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift">
+        <Reveal as="div" className="md:col-span-5">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift">
             <Image
               src={portraitImg}
               alt={`${siteConfig.name} studio`}
               fill
               sizes="(min-width: 768px) 40vw, 90vw"
-              className="object-cover"
+              className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
               placeholder="blur"
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col justify-center md:col-span-7">
+        <Reveal as="div" index={1} className="flex flex-col justify-center md:col-span-7">
           <span className="text-[11px] uppercase tracking-[0.32em] text-gold-500">
             About
           </span>
@@ -41,7 +42,7 @@ export function About() {
             WhatsApp. A limited number of appointments are taken each day so you
             always get full attention.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

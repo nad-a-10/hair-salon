@@ -1,7 +1,6 @@
 import {
   ALL_WEEK_MASK,
   Category,
-  MONDAY_BIT,
   Service,
   ServiceWithCategory,
 } from "@/types/catalog";
@@ -19,8 +18,8 @@ import collagenImg from "@/Images/services/collagen_treatment.jpeg";
 import hairRepairImg from "@/Images/services/hair_repair_treatment.jpeg";
 import fourDImg from "@/Images/services/4d_treatment.jpeg";
 
-// Studio is open Tuesday–Sunday (closed Monday). Adjust if hours change.
-const OPEN_DAYS = ALL_WEEK_MASK & ~MONDAY_BIT;
+// Studio is open every day of the week. Adjust if hours change.
+const OPEN_DAYS = ALL_WEEK_MASK;
 
 export const PLACEHOLDER_CATEGORIES: Category[] = [
   {
@@ -33,7 +32,6 @@ export const PLACEHOLDER_CATEGORIES: Category[] = [
   },
 ];
 
-// NOTE: prices are placeholders ($) — confirm the real prices before launch.
 export const PLACEHOLDER_SERVICES: Service[] = [
   {
     id: "srv-haircut",
@@ -41,7 +39,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "haircut",
     name: "Haircut",
     description: "A precision cut and finish tailored to your hair and face.",
-    priceCents: 2500,
+    priceCents: 4000,
     durationMinutes: 45,
     imageUrl: haircutImg.src,
     weekdayMask: OPEN_DAYS,
@@ -54,7 +52,8 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "brushing",
     name: "Brushing (Blowout)",
     description: "A smooth, voluminous blow-dry for a polished finish.",
-    priceCents: 2000,
+    priceCents: 1000,
+    priceMaxCents: 1500,
     durationMinutes: 45,
     imageUrl: brushingImg.src,
     weekdayMask: OPEN_DAYS,
@@ -67,7 +66,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "waves",
     name: "Waves",
     description: "Soft, lasting waves styled to your liking.",
-    priceCents: 3000,
+    priceCents: 2000,
     durationMinutes: 60,
     imageUrl: wavyImg.src,
     weekdayMask: OPEN_DAYS,
@@ -80,7 +79,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "chignon",
     name: "Chignon (Updo)",
     description: "An elegant updo for weddings, events, and special evenings.",
-    priceCents: 4000,
+    priceCents: 5000,
     durationMinutes: 60,
     imageUrl: chignonImg.src,
     weekdayMask: OPEN_DAYS,
@@ -93,7 +92,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "bridal-bridesmaid-hair",
     name: "Bridal & Bridesmaid Hair",
     description: "Bridal styling for the wedding day, with bridesmaid looks on request.",
-    priceCents: 15000,
+    priceCents: 30000,
     durationMinutes: 120,
     imageUrl: brideBridesmaidImg.src,
     weekdayMask: OPEN_DAYS,
@@ -107,6 +106,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     name: "Highlights",
     description: "Hand-placed highlights for dimension and brightness.",
     priceCents: 8000,
+    priceMaxCents: 10000,
     durationMinutes: 120,
     imageUrl: highlightImg.src,
     weekdayMask: OPEN_DAYS,
@@ -132,7 +132,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "full-color",
     name: "Full Color (Roots + Lengths)",
     description: "All-over color from roots through the lengths.",
-    priceCents: 7000,
+    priceCents: 5000,
     durationMinutes: 120,
     imageUrl: fullColorImg.src,
     weekdayMask: OPEN_DAYS,
@@ -145,7 +145,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "gloss",
     name: "Gloss / Rinçage",
     description: "A glossing rinse that revives shine and tone.",
-    priceCents: 2500,
+    priceCents: 3000,
     durationMinutes: 45,
     imageUrl: rincageImg.src,
     weekdayMask: OPEN_DAYS,
@@ -158,7 +158,8 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "keratin-treatment",
     name: "Keratin Treatment",
     description: "A smoothing keratin treatment that tames frizz for weeks.",
-    priceCents: 12000,
+    priceCents: 15000,
+    priceMaxCents: 20000,
     durationMinutes: 120,
     imageUrl: keratinImg.src,
     weekdayMask: OPEN_DAYS,
@@ -172,6 +173,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     name: "Collagen Treatment",
     description: "A collagen treatment that softens and strengthens the hair.",
     priceCents: 10000,
+    priceMaxCents: 15000,
     durationMinutes: 90,
     imageUrl: collagenImg.src,
     weekdayMask: OPEN_DAYS,
@@ -185,6 +187,7 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     name: "Hair Repair Treatment",
     description: "A restorative treatment for dry or damaged hair.",
     priceCents: 6000,
+    priceMaxCents: 8000,
     durationMinutes: 60,
     imageUrl: hairRepairImg.src,
     weekdayMask: OPEN_DAYS,
@@ -197,7 +200,8 @@ export const PLACEHOLDER_SERVICES: Service[] = [
     slug: "4d-treatment",
     name: "4D Treatment",
     description: "An intensive 4D treatment for deep repair and shine.",
-    priceCents: 14000,
+    priceCents: 8000,
+    priceMaxCents: 10000,
     durationMinutes: 90,
     imageUrl: fourDImg.src,
     weekdayMask: OPEN_DAYS,

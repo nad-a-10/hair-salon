@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Clock } from "lucide-react";
-import { formatCurrency, formatDuration } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+import { formatPrice } from "@/lib/utils";
 import type { Service } from "@/types/catalog";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 export function ServiceCard({ service, categoryName }: Props) {
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-line/60 bg-ivory shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line/60 bg-ivory shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift">
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         {service.imageUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -45,11 +45,7 @@ export function ServiceCard({ service, categoryName }: Props) {
         <div className="mt-auto flex items-end justify-between gap-4 pt-2">
           <div>
             <div className="font-display text-2xl text-rose-600">
-              {formatCurrency(service.priceCents)}
-            </div>
-            <div className="mt-1 inline-flex items-center gap-1.5 text-xs text-muted">
-              <Clock className="h-3.5 w-3.5" aria-hidden />
-              {formatDuration(service.durationMinutes)}
+              {formatPrice(service.priceCents, service.priceMaxCents)}
             </div>
           </div>
           <Link

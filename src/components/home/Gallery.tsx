@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import { Reveal } from "@/components/motion/Reveal";
 import highlightImg from "@/Images/services/highlight.jpeg";
 import chignonImg from "@/Images/services/chignon.jpeg";
 import wavyImg from "@/Images/services/wavy.jpeg";
@@ -22,33 +23,37 @@ export function Gallery() {
       className="scroll-mt-24 bg-charcoal text-ivory"
     >
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
-        <header className="mb-10 max-w-2xl">
-          <span className="text-[11px] uppercase tracking-[0.32em] text-rose-300">
-            Gallery
-          </span>
-          <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">
-            Recent work
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-ivory/70">
-            A glimpse of cuts, color, and finishes from the chair.
-          </p>
-        </header>
+        <Reveal as="div" className="mb-10 max-w-2xl">
+          <header>
+            <span className="text-[11px] uppercase tracking-[0.32em] text-rose-300">
+              Gallery
+            </span>
+            <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">
+              Recent work
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-ivory/70">
+              A glimpse of cuts, color, and finishes from the chair.
+            </p>
+          </header>
+        </Reveal>
 
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           {SHOTS.map((shot, i) => (
-            <div
+            <Reveal
+              as="div"
               key={i}
-              className="relative aspect-square overflow-hidden rounded-[1.25rem]"
+              index={i}
+              className="group relative aspect-square overflow-hidden rounded-[1.25rem]"
             >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
                 sizes="(min-width: 768px) 30vw, 45vw"
-                className="object-cover transition duration-700 hover:scale-[1.04]"
+                className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                 placeholder="blur"
               />
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
