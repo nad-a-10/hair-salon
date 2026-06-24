@@ -59,7 +59,8 @@ export function TimeSlotPicker({
     <div>
       <h3 className="font-display text-2xl text-charcoal">Pick a time</h3>
       <p className="mt-1 text-sm text-muted">
-        Times shown reflect this service&apos;s duration on {format(selectedDate, "EEEE, MMMM d")}.
+        Choose a start time on {format(selectedDate, "EEEE, MMMM d")}. Each
+        appointment runs about 1 hr 15 min.
       </p>
 
       <div className="mt-5 min-h-24">

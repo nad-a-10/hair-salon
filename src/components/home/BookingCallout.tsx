@@ -42,7 +42,7 @@ export function BookingCallout() {
           </div>
           <a
             href="#services"
-            className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-ivory px-8 py-4 text-sm font-medium text-rose-700 transition hover:bg-cream"
+            className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-ivory px-8 py-4 text-sm font-medium text-rose-700 transition hover:bg-cream active:scale-[0.98]"
           >
             See services
             <ArrowRight

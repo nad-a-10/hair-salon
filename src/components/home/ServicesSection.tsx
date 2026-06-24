@@ -16,7 +16,7 @@ export function ServicesSection() {
     >
       <Reveal as="div" className="mb-12 max-w-2xl">
         <header>
-          <SectionLabel>the menu</SectionLabel>
+          <SectionLabel>services</SectionLabel>
           <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] tracking-[-0.01em] text-charcoal md:text-6xl">
             Cuts, color &amp; quiet
             <span className="italic text-rose-600"> care</span>

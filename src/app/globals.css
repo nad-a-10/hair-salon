@@ -122,4 +122,53 @@
     0%   { background-position: 200% 0; }
     100% { background-position: -100% 0; }
   }
+
+  /* Draw-on underline for quiet text links. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size 0.45s var(--ease-soft);
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+}
+
+/* Ambient looping motion. Runs by default; disabled for reduced-motion users
+   in the media query below. */
+
+/* Slow Ken Burns drift for hero / portrait imagery. */
+.ken-burns { animation: ken-burns 30s var(--ease-soft) infinite alternate; }
+@keyframes ken-burns {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to   { transform: scale(1.16) translate3d(-2%, -2.5%, 0); }
+}
+
+/* Warm light that gently breathes. */
+.breathe { animation: breathe 9s ease-in-out infinite; }
+@keyframes breathe {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.85; }
+}
+
+/* Faint living film grain. */
+.grain-drift { animation: grain-drift 7s steps(5) infinite; }
+@keyframes grain-drift {
+  from { background-position: 0 0, 6px 9px; }
+  to   { background-position: 22px 24px, 19px 31px; }
+}
+
+/* Seamless word ribbon. */
+.marquee-track { animation: marquee 38s linear infinite; }
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns,
+  .breathe,
+  .grain-drift,
+  .marquee-track {
+    animation: none !important;
+  }
 }

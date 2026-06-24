@@ -2,6 +2,9 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Reveal } from "@/components/motion/Reveal";
+import { MaskText } from "@/components/motion/MaskText";
+import { Magnetic } from "@/components/motion/Magnetic";
+import { Parallax } from "@/components/motion/Parallax";
 import heroImg from "@/Images/services/wavy.jpeg";
 
 export function Hero() {
@@ -11,16 +14,16 @@ export function Hero() {
       className="relative overflow-hidden bg-charcoal text-ivory"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-grain opacity-20"
+        className="pointer-events-none absolute inset-0 bg-grain grain-drift opacity-20"
         aria-hidden
       />
-      {/* Warm light pooling from the upper-right, for depth on the dark ground. */}
+      {/* Warm light pooling from the upper-right, gently breathing. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-70"
+        className="breathe pointer-events-none absolute inset-0 opacity-60"
         style={{
           background:
-            "radial-gradient(120% 80% at 85% 0%, rgba(168,101,75,0.22), transparent 55%)",
+            "radial-gradient(120% 80% at 85% 0%, rgba(168,101,75,0.24), transparent 55%)",
         }}
       />
 
@@ -31,13 +34,14 @@ export function Hero() {
               Hair Studio · Zalka, Lebanon
             </p>
           </Reveal>
-          <Reveal as="div" index={1}>
-            <h1 className="mt-6 font-display text-[3.25rem] font-light leading-[0.98] tracking-[-0.02em] text-ivory text-balance md:text-7xl lg:text-[5.5rem]">
-              Hair that feels
-              <br />
+
+          <h1 className="mt-6 font-display text-[3.25rem] font-light leading-[0.98] tracking-[-0.02em] text-ivory md:text-7xl lg:text-[5.5rem]">
+            <MaskText index={1}>Hair that feels</MaskText>
+            <MaskText index={2}>
               like <em className="italic text-rose-300">you.</em>
-            </h1>
-          </Reveal>
+            </MaskText>
+          </h1>
+
           <Reveal as="div" index={2}>
             <p className="mt-8 max-w-md text-base leading-relaxed text-ivory/70 text-pretty md:text-lg">
               A one-on-one studio in Zalka for cuts, color, and treatments —
@@ -45,33 +49,34 @@ export function Hero() {
               we&apos;ll take it from there.
             </p>
           </Reveal>
+
           <Reveal
             as="div"
             index={3}
             className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
           >
-            <a
-              href="#services"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-rose-500 px-8 py-4 text-sm font-medium text-ivory shadow-soft transition hover:bg-rose-400"
-            >
-              Book a service
-              <ArrowRight
-                className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                aria-hidden
-              />
-            </a>
+            <Magnetic className="inline-block">
+              <a
+                href="#services"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-rose-500 px-8 py-4 text-sm font-medium text-ivory shadow-soft transition hover:bg-rose-400 active:scale-[0.98]"
+              >
+                Book a service
+                <ArrowRight
+                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                  aria-hidden
+                />
+              </a>
+            </Magnetic>
             <a
               href="#gallery"
-              className="group inline-flex items-center gap-2 text-sm text-ivory/85 transition hover:text-rose-300"
+              className="group inline-flex items-center text-sm text-ivory/85 transition hover:text-rose-300"
             >
-              <span className="border-b border-ivory/30 pb-0.5 transition group-hover:border-rose-300">
-                See the work
-              </span>
+              <span className="link-underline pb-0.5">See the work</span>
             </a>
           </Reveal>
         </div>
 
-        {/* Offset, framed portrait — asymmetric and slightly lower than the text. */}
+        {/* Offset, framed portrait — parallax drift + slow Ken Burns. */}
         <Reveal
           as="div"
           index={2}
@@ -79,15 +84,19 @@ export function Hero() {
         >
           <figure className="group relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] rounded-tr-[5rem] ring-1 ring-ivory/15">
-              <Image
-                src={heroImg}
-                alt={`${siteConfig.name} hair styling`}
-                fill
-                sizes="(min-width: 1024px) 40vw, (min-width: 768px) 45vw, 100vw"
-                className="object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
-                placeholder="blur"
-                priority
-              />
+              <Parallax className="absolute inset-x-0 -inset-y-[12%]" distance={40}>
+                <div className="relative h-full w-full">
+                  <Image
+                    src={heroImg}
+                    alt={`${siteConfig.name} hair styling`}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, (min-width: 768px) 45vw, 100vw"
+                    className="ken-burns object-cover"
+                    placeholder="blur"
+                    priority
+                  />
+                </div>
+              </Parallax>
             </div>
             <figcaption className="mt-4 flex items-center gap-3 font-display text-base italic text-ivory/60">
               <span aria-hidden className="h-px w-8 bg-gold-400/50" />

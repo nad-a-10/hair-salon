@@ -19,9 +19,12 @@ import type {
 } from "@/types/booking";
 import { isOpenOn } from "@/types/catalog";
 
-const DEFAULT_GRANULARITY = 15;
 const CLINIC_TZ = siteConfig.timeZone;
 const BOOKING_MODE = siteConfig.bookingMode;
+// Timed mode reserves a single fixed block for every service (services carry
+// no duration of their own), with start times offered at this spacing.
+const APPOINTMENT_MINUTES = siteConfig.slotMinutes;
+const DEFAULT_GRANULARITY = siteConfig.slotGranularityMinutes;
 const DAY_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 const CLINIC_HOURS_HHMM: Record<number, [string, string] | null> = {
@@ -34,7 +37,7 @@ const CLINIC_HOURS_HHMM: Record<number, [string, string] | null> = {
   6: ["09:00", "19:00"],
 };
 
-const SUNDAY_HOURS_HHMM: [string, string] = ["11:00", "17:00"];
+const SUNDAY_HOURS_HHMM: [string, string] = ["09:00", "19:00"];
 
 /**
  * Open/close instants for a clinic calendar day (yyyy-MM-dd), anchored to the
@@ -123,8 +126,11 @@ export async function getAvailableSlots(
 
   const slots = generateSlots({
     open: hours.open,
-    close: hours.close,
-    serviceDurationMin: service.durationMinutes,
+    // Offer start times right up to closing (the last appointment may run a
+    // little past close), so the grid reaches 7:00 PM rather than stopping a
+    // full appointment-length early.
+    close: addMinutes(hours.close, APPOINTMENT_MINUTES),
+    serviceDurationMin: APPOINTMENT_MINUTES,
     granularityMin: DEFAULT_GRANULARITY,
     existingBookings,
     capacity: pool.capacity,
@@ -250,9 +256,11 @@ export async function createBooking(
     if (Number.isNaN(start.getTime())) {
       return { ok: false, reason: "validation", message: "Invalid time." };
     }
-    end = addMinutes(start, service.durationMinutes);
+    end = addMinutes(start, APPOINTMENT_MINUTES);
     const hours = clinicHoursForDay(clinicDayKey(start), service.weekdayMask);
-    if (!hours || start < hours.open || end > hours.close) {
+    // Validate the start falls within open hours; the booked block may end a
+    // little after close for a late start (last start time is the closing hour).
+    if (!hours || start < hours.open || start > hours.close) {
       return {
         ok: false,
         reason: "out_of_hours",
@@ -275,6 +283,11 @@ export async function createBooking(
     };
   }
 
+  // Services carry no duration of their own; the booked block is the fixed
+  // appointment length in timed mode (a full day in day mode).
+  const bookedDurationMinutes =
+    BOOKING_MODE === "day" ? service.durationMinutes : APPOINTMENT_MINUTES;
+
   const holdMinutes = siteConfig.defaultBookingHoldHours * 60;
   const holdExpiresAt = addMinutes(new Date(), holdMinutes);
 
@@ -289,7 +302,7 @@ export async function createBooking(
         service_id: service.id,
         service_name: service.name,
         service_price_cents: service.priceCents,
-        service_duration_minutes: service.durationMinutes,
+        service_duration_minutes: bookedDurationMinutes,
         customer_name: customerName,
         customer_phone: customerPhone,
         customer_email: customerEmail || null,
@@ -335,7 +348,7 @@ export async function createBooking(
     ownerToken,
     createdAt: new Date().toISOString(),
     serviceName: service.name,
-    serviceDurationMinutes: service.durationMinutes,
+    serviceDurationMinutes: bookedDurationMinutes,
     servicePriceCents: service.priceCents,
   };
 

@@ -58,6 +58,11 @@ export function Gallery() {
                 className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                 placeholder="blur"
               />
+              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/75 via-charcoal/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <span className="translate-y-2 p-4 font-display text-lg italic lowercase text-ivory transition-transform duration-500 group-hover:translate-y-0">
+                  {shot.alt}
+                </span>
+              </div>
             </Reveal>
           ))}
         </div>

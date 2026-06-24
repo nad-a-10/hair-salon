@@ -19,7 +19,7 @@ export function About() {
                 alt={`${siteConfig.name} studio`}
                 fill
                 sizes="(min-width: 768px) 40vw, 90vw"
-                className="object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                className="ken-burns object-cover"
                 placeholder="blur"
               />
             </div>
