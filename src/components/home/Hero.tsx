@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight, Scissors } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { Reveal } from "@/components/motion/Reveal";
@@ -31,7 +30,7 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal as="div" index={3} className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
+            <a
               href="#services"
               className="group inline-flex items-center gap-2 rounded-full bg-rose-500 px-7 py-3.5 text-sm font-medium uppercase tracking-[0.22em] text-white shadow-soft transition hover:bg-rose-400"
             >
@@ -40,13 +39,13 @@ export function Hero() {
                 className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 aria-hidden
               />
-            </Link>
-            <Link
+            </a>
+            <a
               href="#gallery"
               className="inline-flex items-center gap-2 rounded-full border border-ivory/25 px-6 py-3.5 text-sm font-medium uppercase tracking-[0.22em] text-ivory transition hover:border-rose-400 hover:text-rose-300"
             >
               View work
-            </Link>
+            </a>
           </Reveal>
         </div>
 

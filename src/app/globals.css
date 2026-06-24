@@ -63,6 +63,13 @@
     color-scheme: light;
   }
 
+  /* Smooth in-page anchor navigation (View work, Book a service, etc.). */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     background: var(--color-background);
     color: var(--color-foreground);

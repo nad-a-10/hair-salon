@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -27,7 +26,7 @@ export function BookingCallout() {
               No accounts, no waiting, just a simple reservation.
             </p>
           </div>
-          <Link
+          <a
             href="#services"
             className="group inline-flex items-center gap-3 self-start rounded-full bg-ivory px-8 py-4 text-sm font-medium uppercase tracking-[0.22em] text-rose-700 transition hover:bg-cream md:self-auto"
           >
@@ -36,7 +35,7 @@ export function BookingCallout() {
               className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               aria-hidden
             />
-          </Link>
+          </a>
         </div>
       </Reveal>
     </section>
