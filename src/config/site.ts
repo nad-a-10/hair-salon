@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Elie Maamary",
+  name: "Elie Maamari",
   shortName: "Elie",
   role: "Hair Stylist",
   tagline: "unhurried cuts, color & care",
   description:
-    "Elie Maamary Hair Studio, Zalka, Lebanon. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
+    "Elie Maamari Hair Studio, Zalka, Lebanon. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
   url: "https://eliemaamari.com",
   contact: {
     phoneDisplay: "+961 3 262 088",
