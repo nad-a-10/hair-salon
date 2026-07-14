@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -17,19 +17,6 @@ function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
-      {...props}
-    >
-      <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22c4.78-.76 8.43-4.92 8.43-9.94Z" />
     </svg>
   );
 }
@@ -92,15 +79,6 @@ export function Footer() {
               </a>
             </li>
             <li className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-rose-500" aria-hidden />
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="break-all transition hover:text-rose-600"
-              >
-                {siteConfig.contact.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
               <InstagramIcon className="h-4 w-4 text-rose-500" />
               <a
                 href={siteConfig.contact.instagram}
@@ -109,17 +87,6 @@ export function Footer() {
                 className="transition hover:text-rose-600"
               >
                 {siteConfig.contact.instagramHandle} · Instagram
-              </a>
-            </li>
-            <li className="flex items-center gap-3">
-              <FacebookIcon className="h-4 w-4 text-rose-500" />
-              <a
-                href={siteConfig.contact.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-rose-600"
-              >
-                {siteConfig.contact.facebookLabel} · Facebook
               </a>
             </li>
           </ul>

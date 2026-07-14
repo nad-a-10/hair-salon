@@ -1,20 +1,16 @@
 export const siteConfig = {
-  // TODO: replace remaining placeholders (phone, email, socials) with real details.
   name: "Elie Maamary",
   shortName: "Elie",
   role: "Hair Stylist",
   tagline: "unhurried cuts, color & care",
   description:
     "Elie Maamary Hair Studio, Zalka, Lebanon. Cuts, color, blowouts, and restorative hair treatments by a dedicated stylist. Book your day online and confirm by WhatsApp.",
-  url: "https://example.com",
+  url: "https://eliemaamari.com",
   contact: {
     phoneDisplay: "+961 3 262 088",
     whatsappE164: "+9613262088",
-    email: "hello@example.com",
-    instagram: "https://instagram.com/",
-    instagramHandle: "@eliemaamary",
-    facebook: "https://facebook.com/",
-    facebookLabel: "Elie Maamary Hair Studio",
+    instagram: "https://www.instagram.com/coiffure_elie_maamari",
+    instagramHandle: "@coiffure_elie_maamari",
     addressLines: ["Aamrit Chalhoub, Zalqa", "Next to Haroun Hospital"],
     mapsUrl: "https://maps.app.goo.gl/Lceq4wVTA3h8wRsy7?g_st=aw",
   },
