@@ -15,11 +15,11 @@ export const siteConfig = {
     mapsUrl: "https://maps.app.goo.gl/Lceq4wVTA3h8wRsy7?g_st=aw",
   },
   hours: {
-    // Hours are uniform now (open daily 9–7); the second line is a general
-    // note rather than a separate Sunday schedule.
-    weekdays: "Every day · 09:00 – 19:00",
-    sunday: "Appointments confirmed on WhatsApp",
+    // Open every day; Sunday opens earlier (07:00) by exception.
+    weekdays: "Mon – Sat · 09:00 – 19:00",
+    sunday: "Sunday · 07:00 – 19:00",
   },
+
   // Timezone used for all booking dates, regardless of visitor/server locale.
   timeZone: "Asia/Beirut",
   // "day"   = customer picks a date only; up to a daily capacity of bookings.
