@@ -37,8 +37,8 @@ const CLINIC_HOURS_HHMM: Record<number, [string, string] | null> = {
   6: ["09:00", "19:00"],
 };
 
-// Sunday opens earlier than the weekday 09:00, by exception.
-const SUNDAY_HOURS_HHMM: [string, string] = ["07:00", "19:00"];
+// Sunday is open by exception, mornings only: 07:00–13:00.
+const SUNDAY_HOURS_HHMM: [string, string] = ["07:00", "13:00"];
 
 /**
  * Open/close instants for a clinic calendar day (yyyy-MM-dd), anchored to the

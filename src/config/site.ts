@@ -17,7 +17,7 @@ export const siteConfig = {
   hours: {
     // Open every day; Sunday opens earlier (07:00) by exception.
     weekdays: "Mon – Sat · 09:00 – 19:00",
-    sunday: "Sunday · 07:00 – 19:00",
+    sunday: "Sunday · 07:00 – 13:00",
   },
 
   // Timezone used for all booking dates, regardless of visitor/server locale.
