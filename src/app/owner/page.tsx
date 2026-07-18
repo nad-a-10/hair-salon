@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatInTimeZone } from "date-fns-tz";
 import { ArrowLeft, AlertCircle, CalendarCheck2, Clock, MessageCircle } from "lucide-react";
 import { OwnerLogin } from "@/components/owner/OwnerLogin";
+import { WhatsAppLink } from "@/components/owner/WhatsAppLink";
 import { siteConfig } from "@/config/site";
 import { formatCurrency, formatDuration } from "@/lib/utils";
 import { listConfirmedBookings } from "@/server/actions/bookings";
@@ -100,15 +101,13 @@ export default async function OwnerDashboardPage() {
                         <span className="text-muted">· {b.customerPhone}</span>
                       </span>
                       {phoneDigits ? (
-                        <a
-                          href={`https://wa.me/${phoneDigits}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <WhatsAppLink
+                          phoneE164={b.customerPhone}
                           className="inline-flex items-center gap-1.5 rounded-full border border-charcoal/20 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-charcoal transition hover:border-rose-500 hover:text-rose-600"
                         >
                           <MessageCircle className="h-3.5 w-3.5" aria-hidden />
                           Message
-                        </a>
+                        </WhatsAppLink>
                       ) : null}
                     </div>
                   </li>

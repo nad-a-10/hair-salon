@@ -11,6 +11,7 @@ import {
 import { cn, formatCurrency, formatDuration } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { isDayMode } from "@/lib/booking/when";
+import { WhatsAppLink } from "./WhatsAppLink";
 import type { OwnerBookingView } from "@/server/actions/bookings";
 import type { BookingStatus } from "@/types/booking";
 
@@ -49,8 +50,7 @@ export function OwnerBookingCard({ booking }: { booking: OwnerBookingView }) {
   const start = new Date(booking.scheduledAt);
   const end = new Date(booking.endsAt);
   const tone = STATUS_TONE[booking.status];
-  const phoneDigits = booking.customerPhone.replace(/[^0-9]/g, "");
-  const customerWaUrl = phoneDigits ? `https://wa.me/${phoneDigits}` : null;
+  const hasPhone = /[0-9]/.test(booking.customerPhone);
 
   return (
     <article
@@ -96,16 +96,14 @@ export function OwnerBookingCard({ booking }: { booking: OwnerBookingView }) {
           {booking.customerName}
         </Row>
         <Row icon={<Phone className="h-4 w-4" />} label="Phone">
-          {customerWaUrl ? (
-            <a
-              href={customerWaUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+          {hasPhone ? (
+            <WhatsAppLink
+              phoneE164={booking.customerPhone}
               className="inline-flex items-center gap-1.5 text-charcoal underline-offset-4 hover:text-rose-600 hover:underline"
             >
               {booking.customerPhone}
               <MessageCircle className="h-3.5 w-3.5 text-rose-500" aria-hidden />
-            </a>
+            </WhatsAppLink>
           ) : (
             booking.customerPhone
           )}
