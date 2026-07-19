@@ -29,7 +29,8 @@ const DAY_KEY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 const CLINIC_HOURS_HHMM: Record<number, [string, string] | null> = {
   0: null,
-  1: ["09:00", "19:00"],
+  1: null, // Monday closed
+
   2: ["09:00", "19:00"],
   3: ["09:00", "19:00"],
   4: ["09:00", "19:00"],

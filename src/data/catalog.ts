@@ -1,6 +1,7 @@
 import {
   ALL_WEEK_MASK,
   Category,
+  MONDAY_BIT,
   Service,
   ServiceWithCategory,
 } from "@/types/catalog";
@@ -18,8 +19,8 @@ import collagenImg from "@/Images/services/collagen_treatment.jpeg";
 import hairRepairImg from "@/Images/services/hair_repair_treatment.jpeg";
 import fourDImg from "@/Images/services/4d_treatment.jpeg";
 
-// Studio is open every day of the week. Adjust if hours change.
-const OPEN_DAYS = ALL_WEEK_MASK;
+// Open every day except Monday (Sunday is mornings-only, handled in hours).
+const OPEN_DAYS = ALL_WEEK_MASK & ~MONDAY_BIT;
 
 export const PLACEHOLDER_CATEGORIES: Category[] = [
   {
